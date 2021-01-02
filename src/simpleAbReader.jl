@@ -26,5 +26,5 @@ Construct a `CitableNode` from an `ab` element with citable value on `@n` attrib
 """
 function abNode(n, docUrn::CtsUrn)::CitableNode
     nodeUrn = addpassage(docUrn,n["n"])
-    CitableNode(nodeUrn, n.content)
+    CitableNode(nodeUrn, ezxmlstring(n))
 end
