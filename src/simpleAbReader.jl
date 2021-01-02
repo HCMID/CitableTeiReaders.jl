@@ -15,5 +15,16 @@ corpus = simpleAbReader(xmlString, CtsUrn("urn:cts:lycian:tl56.v1:") )
 function simpleAbReader(xml::AbstractString, urnBase::CtsUrn)
     doc = parsexml(xml)
     xp = "/ns:TEI/ns:text/ns:body/ns:ab"
-    doc
+    blocks = findall(xp, doc.root,["ns"=> teins])
+    blocks
+end
+
+
+"""
+$(SIGNATURES)
+Construct a `CitableNode` from an `ab` element with citable value on `@n` attribute.
+"""
+function abNode(n, docUrn::CtsUrn)::CitableNode
+    nodeUrn = addpassage(docUrn,n["n"])
+    CitableNode(nodeUrn, n.content)
 end

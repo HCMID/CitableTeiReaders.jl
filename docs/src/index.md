@@ -6,7 +6,8 @@ CurrentModule = CitableTeiReaders
 ```
 ## Functions
 ```@docs
-simpleAbReader(xml::AbstractString, urnBase::AbstractString)
+simpleAbReader(xml::AbstractString, urnBase::CtsUrn)
+abNode(n, docUrn::CtsUrn)
 ```
 ## Index
 ```@index

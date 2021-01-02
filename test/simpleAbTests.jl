@@ -1,5 +1,16 @@
 
+@testset "Construct a CitableNode from parsed XML" begin
+    docurn = CtsUrn("urn:cts:lycian:tl.tl56.v1:")
+    nodexml = """<ab n="1"><w><unclear>e</unclear>beis</w> : tokedres : <unclear>?</unclear></ab>"""
+    ab = findfirst("/ab", parsexml(nodexml).root)
+    cn = CitableTeiReaders.abNode(ab, docurn)
+    @test isa(cn, CitableText.CitableNode)
+    @test cn.urn == CtsUrn("urn:cts:lycian:tl.tl56.v1:1")
+    @test cn.text == nodexml
+end
 
+
+# Test a short, but complete TEI document
 simpleAbTEI = """
 <?xml version="1.0" encoding="UTF-8"?>
 
@@ -32,7 +43,8 @@ simpleAbTEI = """
 </TEI>
 """
 
-@testset "Construct citable corpus" begin
+@testset "Construct a citable corpus from a complete TEI document" begin
     urn = CtsUrn("urn:cts:lycian:tl.tl56.v1:")
     @test simpleAbReader(simpleAbTEI, urn) !== nothing
 end
+
