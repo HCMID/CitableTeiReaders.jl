@@ -45,6 +45,11 @@ simpleAbTEI = """
 
 @testset "Construct a citable corpus from a complete TEI document" begin
     urn = CtsUrn("urn:cts:lycian:tl.tl56.v1:")
-    @test simpleAbReader(simpleAbTEI, urn) !== nothing
+    c = simpleAbReader(simpleAbTEI, urn)
+    expectednodes = 7
+    @test  isa(c, CitableCorpus)
+    @test size(c.corpus, 1) == expectednodes
+    @test c.corpus[7].urn == CtsUrn("urn:cts:lycian:tl.tl56.v1:7")
+    @test c.corpus[7].text === """<ab n="7">se priyenobehN : tohesN</ab>"""
 end
 
