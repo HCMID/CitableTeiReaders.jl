@@ -14,3 +14,4 @@ end
 
 
 include("simpleAbTests.jl")
+include("poeticLineTests.jl")
