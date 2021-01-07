@@ -9,6 +9,12 @@ version = "1.3.0"
 [[Base64]]
 uuid = "2a0f44e3-6c83-55bd-87e4-b1978d98bd5f"
 
+[[BenchmarkTools]]
+deps = ["JSON", "Logging", "Printf", "Statistics", "UUIDs"]
+git-tree-sha1 = "9e62e66db34540a0c919d72172cc2f642ac71260"
+uuid = "6e4b80f9-dd63-53aa-95a3-0cdb28fa8baf"
+version = "0.5.0"
+
 [[CSV]]
 deps = ["Dates", "Mmap", "Parsers", "PooledArrays", "SentinelArrays", "Tables", "Unicode"]
 git-tree-sha1 = "290a56b2448024a1501834ee8b7d5d7004bc5ad3"
@@ -28,12 +34,12 @@ uuid = "d6f014bd-995c-41bd-9893-703339864534"
 version = "1.1.0"
 
 [[CitableText]]
-deps = ["CSV", "CitableBase", "DataFrames", "DocStringExtensions", "Documenter", "HTTP", "Test"]
-git-tree-sha1 = "27c136cd5166e08be4b49f6e81fa50849c3fc2b9"
+deps = ["BenchmarkTools", "CSV", "CitableBase", "DataFrames", "DocStringExtensions", "Documenter", "HTTP", "Test"]
+git-tree-sha1 = "54c48c38b94f614f784602c1e92dcb9695eebb16"
 repo-rev = "main"
 repo-url = "https://github.com/cite-architecture/CitableText.jl.git"
 uuid = "41e66566-473b-49d4-85b7-da83b66615d8"
-version = "0.2.0"
+version = "0.3.1"
 
 [[Compat]]
 deps = ["Base64", "Dates", "DelimitedFiles", "Distributed", "InteractiveUtils", "LibGit2", "Libdl", "LinearAlgebra", "Markdown", "Mmap", "Pkg", "Printf", "REPL", "Random", "SHA", "Serialization", "SharedArrays", "Sockets", "SparseArrays", "Statistics", "Test", "UUIDs", "Unicode"]
