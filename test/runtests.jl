@@ -13,6 +13,5 @@ using EzXML
 end
 
 
-#ezxmlstring(n::EzXML.Node)
-
 include("simpleAbTests.jl")
+include("poeticLineTests.jl")

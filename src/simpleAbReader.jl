@@ -16,16 +16,8 @@ function simpleAbReader(xml::AbstractString, urnBase::CtsUrn)::CitableCorpus
     doc = parsexml(xml)
     xp = "/ns:TEI/ns:text/ns:body/ns:ab"
     blocks = findall(xp, doc.root,["ns"=> teins])
-    cnodes = map(b -> abNode(b, urnBase),blocks)
+    cnodes = map(b -> citeNAttr(b, urnBase),blocks)
     CitableCorpus(cnodes)
 end
 
 
-"""
-$(SIGNATURES)
-Construct a `CitableNode` from an `ab` element with citable value on `@n` attribute.
-"""
-function abNode(n, docUrn::CtsUrn)::CitableNode
-    nodeUrn = addpassage(docUrn,n["n"])
-    CitableNode(nodeUrn, ezxmlstring(n))
-end
