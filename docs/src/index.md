@@ -7,7 +7,8 @@ CurrentModule = CitableTeiReaders
 ## Functions
 ```@docs
 simpleAbReader(xml::AbstractString, urnBase::CtsUrn)
-abNode(n, docUrn::CtsUrn)
+twocolumnReader(txt::AbstractString, urnPlaceHolder=nothing)
+poeticLineReader(xml::AbstractString, urnBase::CtsUrn)
 ezxmlstring(n::EzXML.Node)
 ```
 ## Index
