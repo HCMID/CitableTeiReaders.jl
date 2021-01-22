@@ -12,7 +12,8 @@ using EzXML
     @test ezxmlstring(elem) === xml
 end
 
-
+include("twocolumnTests.jl")
 include("simpleAbTests.jl")
 include("poeticLineTests.jl")
-include("twocolumnTests.jl")
+include("twoTierTests.jl")
+include("threeTierTests.jl")

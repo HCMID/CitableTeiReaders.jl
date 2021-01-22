@@ -27,3 +27,10 @@ function citeNAttr(n, docUrn::CtsUrn)::CitableNode
     nodeUrn = addpassage(docUrn,n["n"])
     CitableNode(nodeUrn, ezxmlstring(n))
 end
+
+
+
+function citeNAttr(n, docUrn::CtsUrn, psg::AbstractString)::CitableNode
+    nodeUrn = addpassage(docUrn,psg * "." * n["n"])
+    CitableNode(nodeUrn, ezxmlstring(n))
+end
