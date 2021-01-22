@@ -16,6 +16,9 @@ end
 include("simpleAbTests.jl")
 include("poeticLineTests.jl")
 include("twocolumnTests.jl")
-=#
+
 
 include("twoTierTests.jl")
+=#
+
+include("threeTierTests.jl")
