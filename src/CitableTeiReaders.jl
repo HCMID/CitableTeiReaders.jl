@@ -3,15 +3,16 @@ module CitableTeiReaders
 using CitableText, EzXML, Documenter, DocStringExtensions
 
 export ezxmlstring
-export simpleAbReader, poeticLineReader
 export twocolumnReader
-export divAbReader
-
+export simpleAbReader, poeticLineReader
+export divAbReader, divLineReader
+export threeDevReader
 
 include("xmlutilities.jl")
 include("simpleAbReader.jl")
 include("poeticLineReader.jl")
-include("divAbReader.jl")
+include("twoTierReaders.jl")
+include("threeTierReaders.jl")
 include("twocolumnReader.jl")
 
 
