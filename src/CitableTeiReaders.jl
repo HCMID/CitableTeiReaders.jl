@@ -6,7 +6,7 @@ export ezxmlstring
 export twocolumnReader
 export simpleAbReader, poeticLineReader
 export divAbReader, divLineReader
-export threeDevReader
+export threeDivReader
 
 include("xmlutilities.jl")
 include("simpleAbReader.jl")
