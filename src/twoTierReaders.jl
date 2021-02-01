@@ -38,7 +38,7 @@ function divLineReader(xml::AbstractString, urnBase::CtsUrn)::CitableCorpus
     for d in divs
         psg = d["n"]            
         for l in eachelement(d)
-            cn = citeNAttr(ab, urnBase, psg)            
+            cn = citeNAttr(l, urnBase, psg)            
             push!(citableNodes, cn)
         end
     end
