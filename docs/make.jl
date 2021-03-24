@@ -1,6 +1,21 @@
 using Pkg
-pkg"activate .."
-push!(LOAD_PATH,"../src/")
-using Documenter, DocStringExtensions, CitableTeiReaders
+pkg"activate ."
+push!(LOAD_PATH,"..")
 
-makedocs(sitename = "CitableTeiReaders Documentation")
+using Documenter, DocStringExtensions
+using CitableText
+using CitableTeiReaders
+using EzXML
+
+makedocs(
+    sitename = "CitableTeiReaders",
+    pages = [
+        "Home" => "index.md",
+        "Guide" => [
+            "guide/guide.md"
+        ],
+        "API documentation" => [
+            "man/index.md"
+        ]
+    ]
+)
