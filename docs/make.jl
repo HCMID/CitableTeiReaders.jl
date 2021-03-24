@@ -19,3 +19,9 @@ makedocs(
         ]
     ]
 )
+
+deploydocs(
+    repo = "github.com/HCMID/CitableTeiReaders.jl.git",
+)
+
+
