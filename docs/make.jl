@@ -1,5 +1,7 @@
 using Pkg
-pkg"activate ."
+Pkg.activate(".")
+Pkg.instantiate()
+
 push!(LOAD_PATH,"..")
 
 using Documenter, DocStringExtensions
