@@ -1,3 +1,3 @@
 # User's guide
 
-TBA
+Guide including tested, running examples TBA.

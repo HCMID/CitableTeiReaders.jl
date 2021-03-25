@@ -1,7 +1,5 @@
 # API documentation
 
-```@contents
-```
 ## Functions
 ```@docs
 simpleAbReader(xml::AbstractString, urnBase::CtsUrn)
