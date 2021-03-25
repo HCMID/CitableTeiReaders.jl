@@ -1,3 +1,4 @@
+![build](https://github.com/HCMID/CitableTeiReaders.jl/actions/workflows/Documentation.yml/badge.svg)
 
 # CitableTeiReaders.jl
 
