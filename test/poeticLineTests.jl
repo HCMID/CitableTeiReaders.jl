@@ -36,7 +36,7 @@ aratea = """
     urn = CtsUrn("urn:cts:latinLit:phi0881.phi003.bern88:")
     c = poeticLineReader(aratea, urn)
     expectednodes = 6
-    @test  isa(c, CitableCorpus)
+    @test  isa(c, CitableTextCorpus)
     @test size(c.corpus, 1) == expectednodes
     @test c.corpus[6].urn == CtsUrn("urn:cts:latinLit:phi0881.phi003.bern88:6")
     @test c.corpus[6].text === """<l n="6">Qua sol ardentem cancrum papidissimus ambit·</l>"""

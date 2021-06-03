@@ -1,6 +1,7 @@
 module CitableTeiReaders
 
-using CitableText, EzXML, Documenter, DocStringExtensions
+using CitableText, CitableCorpus, EzXML
+using Documenter, DocStringExtensions
 
 export ezxmlstring
 export twocolumnReader

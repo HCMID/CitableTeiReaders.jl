@@ -6,7 +6,7 @@
 $(SIGNATURES)
 Read a TEI document with two citation tiers on `/TEI/text/body/div` and contained `ab` elements.
 """
-function threeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableCorpus
+function threeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableTextCorpus
     doc = parsexml(xml)
     xp = "/ns:TEI/ns:text/ns:body/ns:div"
     divs = findall(xp, root(doc),["ns"=> teins])
@@ -22,12 +22,12 @@ function threeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableCorpus
             end
         end
     end
-    CitableCorpus(citableNodes)
+    CitableTextCorpus(citableNodes)
 end
 
 
 
-function groupedThreeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableCorpus
+function groupedThreeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableTextCorpus
     doc = parsexml(xml)
     xp = "/ns:TEI/ns:text/ns:group"
     groups = findall(xp, root(doc),["ns"=> teins])
@@ -47,5 +47,5 @@ function groupedThreeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableCor
         end
         
     end
-    CitableCorpus(citableNodes)
+    CitableTextCorpus(citableNodes)
 end

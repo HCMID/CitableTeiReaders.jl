@@ -6,7 +6,7 @@
 $(SIGNATURES)
 Read a TEI document with two citation tiers on `/TEI/text/body/div` and contained `ab` elements.
 """
-function divAbReader(xml::AbstractString, urnBase::CtsUrn)::CitableCorpus
+function divAbReader(xml::AbstractString, urnBase::CtsUrn)::CitableTextCorpus
     doc = parsexml(xml)
     xp = "/ns:TEI/ns:text/ns:body/ns:div"
     divs = findall(xp, root(doc),["ns"=> teins])
@@ -19,7 +19,7 @@ function divAbReader(xml::AbstractString, urnBase::CtsUrn)::CitableCorpus
             push!(citableNodes, cn)
         end
     end
-    CitableCorpus(citableNodes)
+    CitableTextCorpus(citableNodes)
 end
 
 
@@ -29,7 +29,7 @@ end
 $(SIGNATURES)
 Read a TEI document with two citation tiers on `/TEI/text/body/div` and contained `l` elements.
 """
-function divLineReader(xml::AbstractString, urnBase::CtsUrn)::CitableCorpus
+function divLineReader(xml::AbstractString, urnBase::CtsUrn)::CitableTextCorpus
     doc = parsexml(xml)
     xp = "/ns:TEI/ns:text/ns:body/ns:div"
     divs = findall(xp, root(doc),["ns"=> teins])
@@ -42,5 +42,5 @@ function divLineReader(xml::AbstractString, urnBase::CtsUrn)::CitableCorpus
             push!(citableNodes, cn)
         end
     end
-    CitableCorpus(citableNodes)
+    CitableTextCorpus(citableNodes)
 end

@@ -12,12 +12,12 @@ julia>
 corpus = simpleAbReader(xmlString, CtsUrn("urn:cts:lycian:tl56.v1:") )
 ```
 """
-function simpleAbReader(xml::AbstractString, urnBase::CtsUrn)::CitableCorpus
+function simpleAbReader(xml::AbstractString, urnBase::CtsUrn)::CitableTextCorpus
     doc = parsexml(xml)
     xp = "/ns:TEI/ns:text/ns:body/ns:ab"
     blocks = findall(xp, doc.root,["ns"=> teins])
     cnodes = map(b -> citeNAttr(b, urnBase),blocks)
-    CitableCorpus(cnodes)
+    CitableTextCorpus(cnodes)
 end
 
 
