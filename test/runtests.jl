@@ -1,6 +1,6 @@
 using CitableTeiReaders
 using Test
-using CitableText
+using CitableText, CitableCorpus
 using EzXML
 
 

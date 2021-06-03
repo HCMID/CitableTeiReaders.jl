@@ -5,7 +5,7 @@
 
     ab = findfirst("//ab", parsexml(nodexml).root)
     cn = CitableTeiReaders.citeNAttr(ab, docurn, "west")
-    @test isa(cn, CitableText.CitableNode)
+    @test isa(cn, CitableNode)
     @test cn.urn == CtsUrn("urn:cts:lycian:tl.tl44.v1:west.1")
     @test cn.text == nodexml
     
@@ -44,7 +44,7 @@ divAbTEI = """
     urn = CtsUrn("urn:cts:lycian:tl.tl44.v1:")
     c = divAbReader(divAbTEI, urn)
 
-    @test  isa(c, CitableCorpus)
+    @test  isa(c, CitableTextCorpus)
     @test length(c.corpus) == 1
     @test c.corpus[1].urn == CtsUrn("urn:cts:lycian:tl.tl44.v1:west.1")
     @test c.corpus[1].text === """<ab n="1"><gap/>ertqqi tuwijEdi qrbbli</ab>"""
@@ -84,7 +84,7 @@ divLineTei = """
     urn = CtsUrn("urn:cts:greekLit:tlg0012.tlg001.test:1.1")
     c = divLineReader(divLineTei, urn)
 
-    @test  isa(c, CitableCorpus)
+    @test  isa(c, CitableTextCorpus)
     @test length(c.corpus) == 1
     @test c.corpus[1].urn == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.test:1.1")
     @test c.corpus[1].text === """<l n="1">μῆνιν</l>"""
