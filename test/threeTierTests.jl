@@ -104,8 +104,9 @@ end
   s = read(f, String)       
   close(f)
 
-  urn = CtsUrn("urn:cts:greekLit:tlg5026.e3.v1:")
+  urn = CtsUrn("urn:cts:greekLit:tlg5026.burney86il.v1:")
   c = groupedThreeDivReader(s, urn)
 
   @test  isa(c, CitableTextCorpus)
+  @test length(c.corpus) == 3
 end
