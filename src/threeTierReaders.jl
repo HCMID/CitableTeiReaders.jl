@@ -35,6 +35,7 @@ work identifier.
 $(SIGNATURES)
 """
 function groupedThreeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableTextCorpus
+    urnwork = split(workcomponent(urnBase), ".")[2]
     doc = parsexml(xml)
     xp = "/ns:TEI/ns:text/ns:group"
     groups = findall(xp, root(doc),["ns"=> teins])
@@ -45,15 +46,18 @@ function groupedThreeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableTex
         for teitext in elements(grp) 
             #teitext = elements(grp)[1]
             workid = teitext["n"]
-            #@debug("Work id $workid is a $(typeof(workid))")
-            texturn = addworkid(urnBase, workid)
-            teibody = elements(teitext)[1]
-            for div1 in eachelement(teibody)
-              
-                tier2psg = toppsg * "." * div1["n"]
-                for div2 in eachelement(div1)
-                    cn = citeNAttr(div2, texturn, tier2psg)       
-                    push!(citableNodes, cn)
+            
+            if workid != urnwork
+                # Skip it
+            else
+                teibody = elements(teitext)[1]
+                for div1 in eachelement(teibody)
+                
+                    tier2psg = toppsg * "." * div1["n"]
+                    for div2 in eachelement(div1)
+                        cn = citeNAttr(div2, urnBase, tier2psg)       
+                        push!(citableNodes, cn)
+                    end
                 end
             end
         end

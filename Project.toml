@@ -1,7 +1,7 @@
 name = "CitableTeiReaders"
 uuid = "b4325aa9-906c-402e-9c3f-19ab8a88308e"
 authors = ["nsmith "]
-version = "0.6.2"
+version = "0.6.3"
 
 [deps]
 CitableCorpus = "cf5ac11a-93ef-4a1a-97a3-f6af101603b5"
