@@ -97,3 +97,15 @@ groupedDivsTei = """
     actualtidied =  replace(c.corpus[1].text, r"[ \t\n]+" => " ")
     @test actualtidied == expected
 end
+
+@testset "Test multiple texts grouped in one TEI document" begin
+  f = open("data/groupedthree.xml", "r")
+  # read entire file into a string
+  s = read(f, String)       
+  close(f)
+
+  urn = CtsUrn("urn:cts:greekLit:tlg5026.e3.v1:")
+  c = groupedThreeDivReader(s, urn)
+
+  @test  isa(c, CitableTextCorpus)
+end

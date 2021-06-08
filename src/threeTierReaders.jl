@@ -3,8 +3,8 @@
 
 
 """
+Read a TEI document with three citation tiers on `/TEI/text/body/div` and contained `ab` elements.
 $(SIGNATURES)
-Read a TEI document with two citation tiers on `/TEI/text/body/div` and contained `ab` elements.
 """
 function threeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableTextCorpus
     doc = parsexml(xml)
@@ -26,7 +26,14 @@ function threeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableTextCorpus
 end
 
 
+"""Read a TEI document with trhee citation tiers on 
+`/TEI/text/group/text`; contained `/body/div` and
+contained `div` elements. The base URN is modified
+by using the `group`element's URN as the work component's
+work identifier.
 
+$(SIGNATURES)
+"""
 function groupedThreeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableTextCorpus
     doc = parsexml(xml)
     xp = "/ns:TEI/ns:text/ns:group"
@@ -35,17 +42,21 @@ function groupedThreeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableTex
     # three-tier for loop:
     for grp in groups
         toppsg = grp["n"] 
-        teitext = elements(grp)[1]
-        teibody = elements(teitext)[1]
-        for div1 in eachelement(teibody)
-        #for div2 in eachelement(div1)
-            tier2psg = toppsg * "." * div1["n"]
-            for div2 in eachelement(div1)
-                cn = citeNAttr(div2, urnBase, tier2psg)       
-                push!(citableNodes, cn)
+        for teitext in elements(grp) 
+            #teitext = elements(grp)[1]
+            workid = teitext["n"]
+            #@debug("Work id $workid is a $(typeof(workid))")
+            texturn = addworkid(urnBase, workid)
+            teibody = elements(teitext)[1]
+            for div1 in eachelement(teibody)
+              
+                tier2psg = toppsg * "." * div1["n"]
+                for div2 in eachelement(div1)
+                    cn = citeNAttr(div2, texturn, tier2psg)       
+                    push!(citableNodes, cn)
+                end
             end
         end
-        
     end
     CitableTextCorpus(citableNodes)
 end
