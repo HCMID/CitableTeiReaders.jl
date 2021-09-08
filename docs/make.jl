@@ -1,13 +1,18 @@
+# Run this from repository root, e.g. with
+# 
+#    julia --project=docs/ docs/make.jl
+#
+# Run this from repository root to serve:
+#
+#   julia -e 'using LiveServer; serve(dir="docs/build")'julia -e 'using LiveServer; serve(dir="docs/build")' 
+#
 using Pkg
 Pkg.activate(".")
 Pkg.instantiate()
 
-push!(LOAD_PATH,"..")
-
 using Documenter, DocStringExtensions
-using CitableText
 using CitableTeiReaders
-using EzXML
+
 
 makedocs(
     sitename = "CitableTeiReaders",
