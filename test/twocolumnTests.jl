@@ -8,5 +8,5 @@ urn:cts:hmt:aristonicus.signs.eng:11|For it is impossible for the one who is per
 urn:cts:hmt:aristonicus.signs.eng:12|The second use brings the charge (of athetesis) on the grounds that the lines are out of place"""
     c = twocolumnReader(src)
     expectednodes = 6
-    @test length(c.corpus) == expectednodes
+    @test length(c.passages) == expectednodes
 end

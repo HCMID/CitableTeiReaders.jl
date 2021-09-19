@@ -38,9 +38,9 @@ threeDivTEI = """
     c = threeDivReader(threeDivTEI, urn)
 
     @test  isa(c, CitableTextCorpus)
-    @test length(c.corpus) == 2
-    @test c.corpus[1].urn == CtsUrn("urn:cts:madeup:fake.group.v1:1.1r_1.lemma")
-    @test c.corpus[1].text === """<div n="lemma"><p>Wrath</p></div>"""
+    @test length(c.passages) == 2
+    @test c.passages[1].urn == CtsUrn("urn:cts:madeup:fake.group.v1:1.1r_1.lemma")
+    @test c.passages[1].text === """<div n="lemma"><p>Wrath</p></div>"""
 end
 
 
@@ -91,10 +91,10 @@ groupedDivsTei = """
     c = groupedThreeDivReader(groupedDivsTei, urn)
 
     @test  isa(c, CitableTextCorpus)
-    @test length(c.corpus) == 3
-    @test c.corpus[1].urn == CtsUrn("urn:cts:greekLit:tlg5026.e3.v1:10.124r_1.lemma")
+    @test length(c.passages) == 3
+    @test c.passages[1].urn == CtsUrn("urn:cts:greekLit:tlg5026.e3.v1:10.124r_1.lemma")
     expected = "<div n=\"lemma\"> <p><num value=\"9\">θ</num></p> </div>"
-    actualtidied =  replace(c.corpus[1].text, r"[ \t\n]+" => " ")
+    actualtidied =  replace(c.passages[1].text, r"[ \t\n]+" => " ")
     @test actualtidied == expected
 end
 
@@ -108,5 +108,5 @@ end
   c = groupedThreeDivReader(s, urn)
 
   @test  isa(c, CitableTextCorpus)
-  @test length(c.corpus) == 3
+  @test length(c.passages) == 3
 end
