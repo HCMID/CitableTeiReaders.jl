@@ -18,6 +18,6 @@ function nodefromline(s::AbstractString)
         nothing
     else
         urn = CtsUrn(cols[1])
-        CitableNode(urn, cols[2])
+        CitablePassage(urn, cols[2])
     end
 end

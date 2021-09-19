@@ -21,12 +21,12 @@ end
 
 """
 $(SIGNATURES)
-Construct a `CitableNode` from an  element with a citable value on `@n` attribute.
+Construct a `CitablePassage` from an  element with a citable value on `@n` attribute.
 """
-function citeNAttr(n, docUrn::CtsUrn)::CitableNode
+function citeNAttr(n, docUrn::CtsUrn)::CitablePassage
     try
         nodeUrn = addpassage(docUrn,n["n"])
-        CitableNode(nodeUrn, ezxmlstring(n))
+        CitablePassage(nodeUrn, ezxmlstring(n))
     catch e
         throw(DomainError("No `n` attribute found for XML node with content $(n.content)"))
     end
@@ -35,13 +35,13 @@ end
 
 """
 $(SIGNATURES)
-Construct a `CitableNode` from an  element with citable value on `@n` attribute.
+Construct a `CitablePassage` from an  element with citable value on `@n` attribute.
 """
-function citeNAttr(n, docUrn::CtsUrn, psg::AbstractString)::CitableNode
+function citeNAttr(n, docUrn::CtsUrn, psg::AbstractString)::CitablePassage
     try 
         nattr = n["n"]
         nodeUrn = addpassage(docUrn,psg * "." * nattr)
-        CitableNode(nodeUrn, ezxmlstring(n))
+        CitablePassage(nodeUrn, ezxmlstring(n))
     catch e
         throw(DomainError("No `n` attribute found for XML node with content $(n.content)"))
     end

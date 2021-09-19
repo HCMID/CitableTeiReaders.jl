@@ -1,10 +1,10 @@
 
-@testset "Construct a CitableNode from parsed XML" begin
+@testset "Construct a CitablePassage from parsed XML" begin
     docurn = CtsUrn("urn:cts:lycian:tl.tl56.v1:")
     nodexml = """<ab n="1"><w><unclear>e</unclear>beis</w> : tokedres : <unclear>?</unclear></ab>"""
     ab = findfirst("/ab", parsexml(nodexml).root)
     cn = CitableTeiReaders.citeNAttr(ab, docurn)
-    @test isa(cn, CitableNode)
+    @test isa(cn, CitablePassage)
     @test cn.urn == CtsUrn("urn:cts:lycian:tl.tl56.v1:1")
     @test cn.text == nodexml
 end
@@ -48,8 +48,8 @@ simpleAbTEI = """
     c = simpleAbReader(simpleAbTEI, urn)
     expectednodes = 7
     @test  isa(c, CitableTextCorpus)
-    @test size(c.corpus, 1) == expectednodes
-    @test c.corpus[7].urn == CtsUrn("urn:cts:lycian:tl.tl56.v1:7")
-    @test c.corpus[7].text === """<ab n="7">se priyenobehN : tohesN</ab>"""
+    @test size(c.passages, 1) == expectednodes
+    @test c.passages[7].urn == CtsUrn("urn:cts:lycian:tl.tl56.v1:7")
+    @test c.passages[7].text === """<ab n="7">se priyenobehN : tohesN</ab>"""
 end
 

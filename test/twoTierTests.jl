@@ -1,11 +1,11 @@
 
-@testset "Construct a CitableNode from parsed XML" begin
+@testset "Construct a CitablePassage from parsed XML" begin
     docurn = CtsUrn("urn:cts:lycian:tl.tl44.v1:")
     nodexml = """<ab n="1"><gap/>ertqqi tuwijEdi qrbbli</ab>"""
 
     ab = findfirst("//ab", parsexml(nodexml).root)
     cn = CitableTeiReaders.citeNAttr(ab, docurn, "west")
-    @test isa(cn, CitableNode)
+    @test isa(cn, CitablePassage)
     @test cn.urn == CtsUrn("urn:cts:lycian:tl.tl44.v1:west.1")
     @test cn.text == nodexml
     
@@ -45,9 +45,9 @@ divAbTEI = """
     c = divAbReader(divAbTEI, urn)
 
     @test  isa(c, CitableTextCorpus)
-    @test length(c.corpus) == 1
-    @test c.corpus[1].urn == CtsUrn("urn:cts:lycian:tl.tl44.v1:west.1")
-    @test c.corpus[1].text === """<ab n="1"><gap/>ertqqi tuwijEdi qrbbli</ab>"""
+    @test length(c.passages) == 1
+    @test c.passages[1].urn == CtsUrn("urn:cts:lycian:tl.tl44.v1:west.1")
+    @test c.passages[1].text === """<ab n="1"><gap/>ertqqi tuwijEdi qrbbli</ab>"""
 end
 
 
@@ -85,7 +85,7 @@ divLineTei = """
     c = divLineReader(divLineTei, urn)
 
     @test  isa(c, CitableTextCorpus)
-    @test length(c.corpus) == 1
-    @test c.corpus[1].urn == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.test:1.1")
-    @test c.corpus[1].text === """<l n="1">μῆνιν</l>"""
+    @test length(c.passages) == 1
+    @test c.passages[1].urn == CtsUrn("urn:cts:greekLit:tlg0012.tlg001.test:1.1")
+    @test c.passages[1].text === """<l n="1">μῆνιν</l>"""
 end
