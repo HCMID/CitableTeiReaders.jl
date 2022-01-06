@@ -23,20 +23,24 @@ export threeDivReader, groupedThreeDivReader
 
 
 export readcitable
+# One-tier citation:
 export TEIPoeticLine, TEIAnonblock
+# Two-tier citation:
+# Three-tier citation:
+export TEIDivDivDiv
 
 include("generic.jl")
-include("poeticLineReader.jl")
-
-
-
 include("xmlutilities.jl")
-include("simpleAbReader.jl")
 
+include("poeticLineReader.jl")
+include("simpleAbReader.jl")
+include("threedivReader.jl")
+
+#=
 include("twoTierReaders.jl")
 include("threeTierReaders.jl")
 include("twocolumnReader.jl")
-
+=#
 
 
 end # module
