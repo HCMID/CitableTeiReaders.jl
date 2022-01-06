@@ -1,4 +1,4 @@
 
 # CitableTeiReaders.jl
 
-A Julia module for converting TEI XML documents to instances of a `CitableCorpus`.
+A Julia module for reading documents in a variety of formats to instances of a `CitableCorpus`.
