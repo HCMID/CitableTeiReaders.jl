@@ -25,7 +25,11 @@ export threeDivReader, groupedThreeDivReader
 export readcitable
 # One-tier citation:
 export TEIPoeticLine, TEIAnonblock
+
 # Two-tier citation:
+export TEIDivAb
+export TEIDivLine
+
 # Three-tier citation:
 export TEIDivDivDiv, TEIThreeDivsGrouped
 
@@ -34,8 +38,14 @@ include("xmlutilities.jl")
 
 include("poeticLineReader.jl")
 include("simpleAbReader.jl")
+
+include("divAbReader.jl")
+include("divLineReader.jl")
+
+
 include("threedivReader.jl")
 include("groupedThreeDiv.jl")
+
 
 #=
 include("twoTierReaders.jl")
