@@ -2,11 +2,6 @@
 
 ## Functions
 ```@docs
-simpleAbReader
-twocolumnReader
-poeticLineReader
+readcitable
 ezxmlstring
-```
-## Index
-```@index
 ```

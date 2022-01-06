@@ -34,10 +34,20 @@ aratea = """
 
 @testset "Construct a citable corpus from a complete TEI document citing by `l`." begin
     urn = CtsUrn("urn:cts:latinLit:phi0881.phi003.bern88:")
-    c = poeticLineReader(aratea, urn)
+    
+    c = readcitable(aratea, urn, TEIPoeticLine)
+
+
     expectednodes = 6
     @test  isa(c, CitableTextCorpus)
     @test size(c.passages, 1) == expectednodes
     @test c.passages[6].urn == CtsUrn("urn:cts:latinLit:phi0881.phi003.bern88:6")
     @test c.passages[6].text === """<l n="6">Qua sol ardentem cancrum papidissimus ambit·</l>"""
+end
+
+@testset "Test reading from different sources" begin
+  urn = CtsUrn("urn:cts:latinLit:phi0881.phi003.bern88:")
+  url = "https://raw.githubusercontent.com/HCMID/CitableTeiReaders.jl/dev/test/data/aratea.xml"  
+
+  corp = readcitable(url, urn, TEIPoeticLine, UrlReader )
 end

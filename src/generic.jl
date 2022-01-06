@@ -4,16 +4,12 @@ abstract type CiteStructureTrait end
 "Singleton type for unrecognized source document cited by poetic line."
 struct UnrecognizedCitationScheme <: CiteStructureTrait end
 
-
-
 """Read from `src`  a citable document identified by `urn` and cited by citation scheme `citescheme`.
 $(SIGNATURES)
 """
 function readcitable(src::AbstractString, urn::CtsUrn, citescheme::Type{<: CiteStructureTrait})
     throw(DomainError(rdr), "`readcitable` not implemented for type $(typeof(rdr))")
 end
-
-
 
 """Read from file `fname`  a citable document identified by `urn` and cited by citation scheme `citescheme`.
 $(SIGNATURES)
@@ -25,14 +21,12 @@ function readcitable(fname::AbstractString, urn::CtsUrn, citescheme::Type{<: Cit
     readcitable(xml, urn, citescheme)
 end
 
-
-
 """Read from `url`  a citable document identified by `urn` and cited by citation scheme `citescheme`.
 $(SIGNATURES)
 """
 function readcitable(url::AbstractString, urn::CtsUrn, citescheme::Type{<: CiteStructureTrait},
-    rdr::Type{FileReader}
+    rdr::Type{UrlReader}
     )
-    xml = read(fname, String)
+    xml = HTTP.get(url).body |>  String
     readcitable(xml, urn, citescheme)
 end

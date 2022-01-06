@@ -1,10 +1,17 @@
 module CitableTeiReaders
+
 using CitableBase
-using CitableText, CitableCorpus, EzXML
+using CitableText
+using CitableCorpus
+
+using EzXML
+using HTTP
+
+
+
 using Documenter, DocStringExtensions
 
 
-#export citestructuretrait
 
 export ezxmlstring
 export twocolumnReader
