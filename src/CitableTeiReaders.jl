@@ -14,13 +14,16 @@ using Documenter, DocStringExtensions
 
 
 export ezxmlstring
+#=
 export twocolumnReader
 export simpleAbReader, poeticLineReader
 export divAbReader, divLineReader
 export threeDivReader, groupedThreeDivReader
+=#
+
 
 export readcitable
-export TEIPoeticLine
+export TEIPoeticLine, TEIAnonblock
 
 include("generic.jl")
 include("poeticLineReader.jl")
