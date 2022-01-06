@@ -24,7 +24,7 @@ end
 """Read from `url`  a citable document identified by `urn` and cited by citation scheme `citescheme`.
 $(SIGNATURES)
 """
-function readcitable(url::AbstractString, urn::CtsUrn, citescheme::Type{<: CiteStructureTrait},
+function readcitable(url::AbstractString, urn, citescheme::Type{<: CiteStructureTrait},
     rdr::Type{UrlReader}
     )
     xml = HTTP.get(url).body |>  String

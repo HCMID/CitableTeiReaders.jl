@@ -15,6 +15,7 @@ end
 
 
 include("test_poeticline.jl")
+
 include("test_simpleAb.jl")
 
 include("test_divab.jl")
@@ -22,10 +23,6 @@ include("test_divline.jl")
 
 include("test_threedivs.jl")
 
-#=
-include("twocolumnTests.jl")
 
+include("test_twocolumn.jl")
 
-include("twoTierTests.jl")
-include("threeTierTests.jl")
-=#

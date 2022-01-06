@@ -6,7 +6,7 @@ urn:cts:hmt:aristonicus.signs.eng:9|His (Aristarchus') rationale/reason for athe
 urn:cts:hmt:aristonicus.signs.eng:10|The first use is when indicating that the line (epos) is not Homeric, as was indicated on the line "he delights in the feast and he has as wife Hebe with lovely ankles."
 urn:cts:hmt:aristonicus.signs.eng:11|For it is impossible for the one who is perpetually virgin to be given in marriage.
 urn:cts:hmt:aristonicus.signs.eng:12|The second use brings the charge (of athetesis) on the grounds that the lines are out of place"""
-    c = twocolumnReader(src)
+    c =  readcitable(src, nothing, DelimitedText) #twocolumnReader(src)
     expectednodes = 6
     @test length(c.passages) == expectednodes
 end

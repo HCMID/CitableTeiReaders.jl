@@ -7,51 +7,40 @@ using CitableCorpus
 using EzXML
 using HTTP
 
-
-
 using Documenter, DocStringExtensions
 
-
-
 export ezxmlstring
-#=
-export twocolumnReader
-export simpleAbReader, poeticLineReader
-export divAbReader, divLineReader
-export threeDivReader, groupedThreeDivReader
-=#
-
-
 export readcitable
-# One-tier citation:
-export TEIPoeticLine, TEIAnonblock
 
-# Two-tier citation:
+# Delimited-text citation
+export DelimitedText
+
+# One-tier XML citation:
+export TEIPoeticLine
+
+export TEIAnonblock
+# Two-tier XML citation:
 export TEIDivAb
 export TEIDivLine
-
-# Three-tier citation:
+# Three-tier XML citation:
 export TEIDivDivDiv, TEIThreeDivsGrouped
+
 
 include("generic.jl")
 include("xmlutilities.jl")
 
 include("poeticLineReader.jl")
+
+
 include("simpleAbReader.jl")
 
 include("divAbReader.jl")
 include("divLineReader.jl")
 
-
 include("threedivReader.jl")
 include("groupedThreeDiv.jl")
 
-
-#=
-include("twoTierReaders.jl")
-include("threeTierReaders.jl")
 include("twocolumnReader.jl")
-=#
 
 
 end # module
