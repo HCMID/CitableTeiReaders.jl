@@ -45,7 +45,7 @@ simpleAbTEI = """
 
 @testset "Construct a citable corpus from a TEI document citing by `ab`." begin
     urn = CtsUrn("urn:cts:lycian:tl.tl56.v1:")
-    c = simpleAbReader(simpleAbTEI, urn)
+    c = readcitable(simpleAbTEI, urn, TEIAnonblock) #simpleAbReader(simpleAbTEI, urn)
     expectednodes = 7
     @test  isa(c, CitableTextCorpus)
     @test size(c.passages, 1) == expectednodes

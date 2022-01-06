@@ -1,17 +1,20 @@
 name = "CitableTeiReaders"
 uuid = "b4325aa9-906c-402e-9c3f-19ab8a88308e"
 authors = ["nsmith "]
-version = "0.7.4"
+version = "0.8.0"
 
 [deps]
+CitableBase = "d6f014bd-995c-41bd-9893-703339864534"
 CitableCorpus = "cf5ac11a-93ef-4a1a-97a3-f6af101603b5"
 CitableText = "41e66566-473b-49d4-85b7-da83b66615d8"
 DocStringExtensions = "ffbed154-4ef7-542d-bbb7-c09d3a79fcae"
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
 EzXML = "8f5d6c58-4d21-5cfd-889c-e3ad7ee6a615"
+HTTP = "cd3eb016-35fb-5094-929b-558a96fad6f3"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [compat]
+CitableBase = "8.1"
 CitableCorpus = "0.10"
 CitableText = "0.14"
 DocStringExtensions = "0.8"

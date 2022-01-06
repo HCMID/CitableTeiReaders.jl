@@ -1,6 +1,6 @@
 using CitableTeiReaders
 using Test
-using CitableText, CitableCorpus
+using CitableText, CitableCorpus, CitableBase
 using EzXML
 
 
@@ -12,8 +12,17 @@ using EzXML
     @test ezxmlstring(elem) === xml
 end
 
-include("twocolumnTests.jl")
-include("simpleAbTests.jl")
-include("poeticLineTests.jl")
-include("twoTierTests.jl")
-include("threeTierTests.jl")
+
+
+include("test_poeticline.jl")
+
+include("test_simpleAb.jl")
+
+include("test_divab.jl")
+include("test_divline.jl")
+
+include("test_threedivs.jl")
+
+
+include("test_twocolumn.jl")
+
