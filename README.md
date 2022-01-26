@@ -1,6 +1,4 @@
 
 # CitableTeiReaders.jl
 
-A Julia module for reading documents in a variety of formats to instances of a `CitableCorpus`.
-
-(Documentation forthcoming.)
+A Julia packages for reading documents in a variety of formats into instances of a `CitableTextCorpus`.
