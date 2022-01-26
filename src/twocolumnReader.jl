@@ -1,4 +1,5 @@
-
+"""Create a `CitablePassage` from a string of delimited text.
+"""
 function nodefromline(s::AbstractString)
     cols = split(s, "|")
     if length(cols) != 2
@@ -11,7 +12,7 @@ end
 
 
 
-"Singleton type for delimited-text document with citation scheme already expresesed with URNs."
+"Singleton type for delimited-text document with citation scheme of arbitrary depth already expressed with URNs."
 struct DelimitedText <: CiteStructureTrait end
 
 "Implementation of `readcitable` for type `DelimitedText`."

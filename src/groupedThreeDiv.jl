@@ -1,25 +1,5 @@
 
-
-
-
-#=
-
-"""Read a TEI document with trhee citation tiers on 
-`/TEI/text/group/text`; contained `/body/div` and
-contained `div` elements. The base URN is modified
-by using the `group`element's URN as the work component's
-work identifier.
-
-$(SIGNATURES)
-"""
-function groupedThreeDivReader(xml::AbstractString, urnBase::CtsUrn)::CitableTextCorpus
-   
-end
-
-=#
-
-
-"Singleton type for TEI document cited by poetic line."
+"Singleton type for grouped TEI documents cited in three tiers using TEI `group`, `div` and `div`."
 struct TEIThreeDivsGrouped <: CiteStructureTrait end
 
 "Implementation of `readcitable` for type `TEIThreeDivsGrouped`."
