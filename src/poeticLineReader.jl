@@ -1,4 +1,4 @@
-"Singleton type for TEI document cited by poetic line."
+"Singleton type for TEI document cited by poetic line using TEI `l`."
 struct TEIPoeticLine <: CiteStructureTrait end
 
 "Implementation of `readcitable` for type `TEIPoeticLine`."

@@ -1,5 +1,5 @@
 
-"Singleton type for TEI document cited by poetic line."
+"Singleton type for TEI document cited by prose block using TEI `ab`."
 struct TEIAnonblock <: CiteStructureTrait end
 
 "Implementation of `readcitable` for type `TEIAnonblock`."

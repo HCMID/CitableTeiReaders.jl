@@ -1,4 +1,4 @@
-"Singleton type for TEI document cited by poetic line."
+"Singleton type for TEI document cited in three tiers using TEI `div`, `div` and `div`."
 struct TEIDivDivDiv <: CiteStructureTrait end
 
 "Implementation of `readcitable` for type `TEIDivDivDiv`."

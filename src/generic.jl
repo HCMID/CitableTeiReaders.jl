@@ -1,17 +1,19 @@
-"Abstract type for readers capable of parsing citation structure of a source text."
+"Abstract type for readers capable of parsing the citation structure of a source text."
 abstract type CiteStructureTrait end
 
 "Singleton type for unrecognized source document cited by poetic line."
 struct UnrecognizedCitationScheme <: CiteStructureTrait end
 
-"""Read from `src`  a citable document identified by `urn` and cited by citation scheme `citescheme`.
+"""Read from `src`  a citable document identified by `urn`. Its citation scheme
+must be parseable using the type `citescheme`.
 $(SIGNATURES)
 """
 function readcitable(src::AbstractString, urn::CtsUrn, citescheme::Type{<: CiteStructureTrait})
     throw(DomainError(rdr), "`readcitable` not implemented for type $(typeof(rdr))")
 end
 
-"""Read from file `fname`  a citable document identified by `urn` and cited by citation scheme `citescheme`.
+"""Read from file `fname`  a citable document identified by `urn`. Its citation scheme
+must be parseable using the type `citescheme`.
 $(SIGNATURES)
 """
 function readcitable(fname::AbstractString, urn::CtsUrn, citescheme::Type{<: CiteStructureTrait},
@@ -21,7 +23,8 @@ function readcitable(fname::AbstractString, urn::CtsUrn, citescheme::Type{<: Cit
     readcitable(xml, urn, citescheme)
 end
 
-"""Read from `url`  a citable document identified by `urn` and cited by citation scheme `citescheme`.
+"""Read from `url`  a citable document identified by `urn`. Its citation scheme
+must be parseable using the type `citescheme`.
 $(SIGNATURES)
 """
 function readcitable(url::AbstractString, urn, citescheme::Type{<: CiteStructureTrait},
