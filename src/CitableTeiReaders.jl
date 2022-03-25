@@ -23,7 +23,7 @@ export TEIAnonblock
 export TEIDivAb
 export TEIDivLine
 # Three-tier XML citation:
-export TEIDivDivDiv, TEIThreeDivsGrouped
+export TEIDivDivDiv, TEIDivDivLine, TEIThreeDivsGrouped
 
 
 include("generic.jl")
@@ -36,6 +36,7 @@ include("simpleAbReader.jl")
 
 include("divAbReader.jl")
 include("divLineReader.jl")
+include("divDivLineReader.jl")
 
 include("threedivReader.jl")
 include("groupedThreeDiv.jl")
