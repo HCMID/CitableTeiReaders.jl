@@ -22,6 +22,7 @@ include("test_divab.jl")
 include("test_divline.jl")
 
 include("test_threedivs.jl")
+include("test_divdivline.jl")
 
 
 include("test_twocolumn.jl")
