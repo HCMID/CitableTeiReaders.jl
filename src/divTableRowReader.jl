@@ -6,7 +6,7 @@ function readcitable(src::AbstractString, urn::CtsUrn, rdr::Type{TEIDivTableRow}
     doc = parsexml(src)
     xp = "/ns:TEI/ns:text/ns:body/ns:div"
     divs = findall(xp, root(doc),["ns"=> teins])
-    CitablePassages = []
+    citablePassages = []
     # three-tier for loop:
     for div in divs
         divref = div["n"]   
@@ -17,12 +17,23 @@ function readcitable(src::AbstractString, urn::CtsUrn, rdr::Type{TEIDivTableRow}
             rows = findall("ns:row", t, ["ns"=> CitableTeiReaders.teins])
             for r in rows
                 rowref = r["n"]
+                ref = "$(divref).$(tableref).$(rowref)"
                 @info("Ref: $(divref).$(tableref).$(rowref)")
-                cells = findall("ns:cell", t, ["ns"=> CitableTeiReaders.teins])
-                celllist = []
+                
+                
+                cells = findall("ns:cell", r, ["ns"=> CitableTeiReaders.teins])
+                @info("Push $(length(cells)) cells")
+
+                cell_list = String[]
                 for c in cells
-                    push!(ezxmlstring(c), celllist)
+                    @info(ezxmlstring(c))
+                    push!(cell_list, ezxmlstring(c))
                 end
+                @info("Got cells vect $(cell_list)")
+                txt = string("| ", join(cell_list, " | "), " |")
+                u = addpassage(urn, ref)
+
+                push!(citablePassages, CitablePassage(u, txt))
             end
         end 
         
@@ -39,5 +50,5 @@ function readcitable(src::AbstractString, urn::CtsUrn, rdr::Type{TEIDivTableRow}
         end
         =#
     end
-    CitableTextCorpus(CitablePassages)
+    CitableTextCorpus(citablePassages)
 end

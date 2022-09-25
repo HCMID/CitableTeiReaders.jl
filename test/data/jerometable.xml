@@ -26,7 +26,7 @@
             <row role="header" n="header"><cell>Header data</cell></row>
             <row role="header" n="regnal"><cell>Regnal declaration</cell></row>
             <row role="header" n="1"><cell>Row 1 data</cell></row>
-            <row role="header" n="2">Row 2 data</row>
+            <row role="header" n="2"><cell>Row 2 data</cell></row>
         </table>
         </div>
     </body>
