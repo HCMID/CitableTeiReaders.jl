@@ -24,7 +24,7 @@ export TEIDivAb
 export TEIDivLine
 # Three-tier XML citation:
 export TEIDivDivDiv, TEIDivDivLine, TEIThreeDivsGrouped
-
+export TEIDivTableRow
 
 include("generic.jl")
 include("xmlutilities.jl")
@@ -42,6 +42,6 @@ include("threedivReader.jl")
 include("groupedThreeDiv.jl")
 
 include("twocolumnReader.jl")
-
+include("divTableReader.jl")
 
 end # module
