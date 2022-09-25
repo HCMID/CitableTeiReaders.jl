@@ -42,6 +42,6 @@ include("threedivReader.jl")
 include("groupedThreeDiv.jl")
 
 include("twocolumnReader.jl")
-include("divTableReader.jl")
+include("divTableRowReader.jl")
 
 end # module

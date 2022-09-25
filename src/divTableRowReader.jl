@@ -9,8 +9,26 @@ function readcitable(src::AbstractString, urn::CtsUrn, rdr::Type{TEIDivTableRow}
     CitablePassages = []
     # three-tier for loop:
     for div in divs
-        divref = div["n"]            
-        @info("Div $(divref)")
+        divref = div["n"]   
+        tabs = findall("ns:table", div, ["ns"=> CitableTeiReaders.teins])  
+
+        for t in tabs
+            tableref = t["n"]
+            rows = findall("ns:row", t, ["ns"=> CitableTeiReaders.teins])
+            for r in rows
+                rowref = r["n"]
+                @info("Ref: $(divref).$(tableref).$(rowref)")
+                cells = findall("ns:cell", t, ["ns"=> CitableTeiReaders.teins])
+                celllist = []
+                for c in cells
+                    push!(ezxmlstring(c), celllist)
+                end
+            end
+        end 
+        
+        
+        
+        #for in 
         #=
         for div2 in eachelement(div1)
             tier2psg = toppsg * "." * div2["n"]
