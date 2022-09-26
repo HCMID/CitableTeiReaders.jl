@@ -19,11 +19,12 @@ function readcitable(src::AbstractString, urn::CtsUrn, rdr::Type{TEIDivTableRow}
                 rowref = r["n"]
                 ref = "$(divref).$(tableref).$(rowref)"
                 @info("Ref: $(divref).$(tableref).$(rowref)")
+                cn = citeNAttr(r, urn, ref)  
                 
-                
-                cells = findall("ns:cell", r, ["ns"=> CitableTeiReaders.teins])
-                @info("Push $(length(cells)) cells")
+                #cells = findall("ns:cell", r, ["ns"=> CitableTeiReaders.teins])
+                #@info("Push $(length(cells)) cells")
 
+                #=
                 cell_list = String[]
                 for c in cells
                     @info(ezxmlstring(c))
@@ -31,9 +32,9 @@ function readcitable(src::AbstractString, urn::CtsUrn, rdr::Type{TEIDivTableRow}
                 end
                 @info("Got cells vect $(cell_list)")
                 txt = string("| ", join(cell_list, " | "), " |")
-                u = addpassage(urn, ref)
-
-                push!(citablePassages, CitablePassage(u, txt))
+                =#
+               
+                push!(citablePassages,cn)
             end
         end 
         
